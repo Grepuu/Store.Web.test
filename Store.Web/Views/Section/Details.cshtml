@@ -1,0 +1,57 @@
+﻿@model Store.Web.Models.ViewModels.SectionDetailsViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<a class="btn btn-primary" asp-controller="Section" asp-action="Index" asp-route-id="@(Model.Section.Id)">
+    Back
+</a>
+
+<h3>
+    @(Model.Section.Name)
+</h3>
+
+<p>
+    Id: @(Model.Section.Id)<br />
+    Name: <strong>@(Model.Section.Name)</strong><br />
+    Description: @(Model.Section.Description)<br />
+    Size: @(Model.Section.Size)<br />
+    Maximum number of racks: @(Model.Section.MaxNumberOfRacks)
+   
+</p>
+
+<a class="btn btn-primary" asp-controller="Section" asp-action="RemoveSection" asp-route-id="@(Model.Section.Id)">
+    Delete
+</a>
+<hr />
+<h4>
+    List of products
+</h4>
+
+@if (Model.Section.Products != null)
+{
+    @foreach (var product in Model.Section.Products)
+    {
+        <p>
+            <strong>@(product.Name)</strong><br />
+            @(product.Description)<br />
+            @(product.Weight) kg<br />
+            @(product.Data)<br />
+            <a class="btn btn-primary" asp-controller="Product" asp-action="Details" asp-route-id="@(product.Id)">
+                See more
+            </a>
+        </p>
+
+    }
+}
+
+
+
+
+<br />
+<a class="btn btn-success" asp-controller="Product" asp-route-sectionId="@(Model.Section.Id)" asp-action="AddProductToSection">
+    Add new product
+</a>
+

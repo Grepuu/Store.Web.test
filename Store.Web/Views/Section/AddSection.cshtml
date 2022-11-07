@@ -1,0 +1,37 @@
+﻿@model Store.Web.Models.DTO.SectionDTO
+@{
+}
+
+
+<form method="post" asp-controller="Section" asp-action="AddSection">
+    <div asp-validation-summary="All" class="mb-4 text-danger"></div>
+    <div class="mb-3">
+        <label for="Name" class="form-label">
+            Name
+        </label>
+        <input type="text" class="form-control" id="Name" name="Name" asp-for="Name" required />
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label">
+            Description
+        </label>
+        <input type="text" class="form-control" name="Description" asp-for="Description" required />
+    </div>
+    <div class="mb-3">
+        <label for="Size" class="form-label">
+            Size
+        </label>
+        <input type="text" class="form-control" name="Size" asp-for="Size" required />
+    </div>
+    <div class="mb-3">
+        <label for="Maximum number of racks" class="form-label">
+            Maximum number of racks
+        </label>
+        <input type="text" class="form-control" name="MaxNumberOfRacks" asp-for="MaxNumberOfRacks" required />
+    </div>
+    <div class="mb-3">
+        <button type="submit">
+            Send
+        </button>
+    </div>
+</form>

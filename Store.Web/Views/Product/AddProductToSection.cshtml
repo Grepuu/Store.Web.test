@@ -1,0 +1,41 @@
+﻿@model ProductDTO
+
+@{
+}
+
+<h4>
+    Add new product
+</h4>
+
+<form method="post" asp-controller="Product" asp-action="AddProductToSection">
+    <input type="hidden" name="SectionId" value="@(Model.SectionId)" />
+    <div class="mb-3">
+        <label for="Name" class="form-label">
+            Name
+        </label>
+        <input type="text" class="form-control" name="Name" required />
+    </div>
+    <div class="mb-3">
+        <label for="Description" class="form-label">
+            Description
+        </label>
+        <input type="text" class="form-control" name="Description" required />
+    </div>
+    <div class="mb-3">
+        <label for="Weight" class="form-label">
+            Weight
+        </label>
+        <input type="text" class="form-control" name="Weight" required />
+    </div>
+    <div class="mb-3">
+        <label for="Data" class="form-label">
+            Data
+        </label>
+        <input type="text" class="form-control" name="Data" required />
+    </div>
+    <div class="mb-3">
+        <button type="submit">
+            Send
+        </button>
+    </div>
+</form>

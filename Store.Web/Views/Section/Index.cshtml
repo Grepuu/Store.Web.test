@@ -1,0 +1,33 @@
+﻿@model Store.Web.Models.ViewModels.SectionIndexViewModel
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<h3>
+    Sections
+</h3>
+@if (Model.Sections != null)
+{
+    @foreach (var section in Model.Sections)
+    {
+        <p>
+            @(section.Id)<br />
+            <strong>@(section.Name)</strong><br />
+            @(section.Description)<br />
+            @(section.Size)<br />
+            @(section.MaxNumberOfRacks)<br />
+
+            <a class="btn btn-primary" asp-controller="Section" asp-action="Details" asp-route-id="@(section.Id)">
+                See more
+            </a>
+
+        </p>
+    }
+}
+
+
+
+<a class="btn btn-primary" asp-controller="Section" asp-action="AddSection">
+    Add Section
+</a>
